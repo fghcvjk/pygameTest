@@ -6,44 +6,21 @@ import pygame
 from pygame.locals import *
 import sys
 
+from point import Point
+from shape import Shape
+
 BACKGROUND_IMAGE_FILENAME = '123.png'
 MOUSE_IMAGE_FILENAME = '456.png'
 INIT_BACKGROUND_POINT = (0,0)
 REMOVE_SAVE_EVENT = (K_LEFT, K_RIGHT, K_UP, K_DOWN)
 REMOVE_SPEED = 1
 
-class Points(object):
-    def __init__(self, point):
-        self.refresh(point)
-
-    def getPoint(self):
-        return (self.x, self.y)
-
-    def refresh(self, point):
-        self.x = point[0]
-        self.y = point[-1]
-
-class Shape(object):
-    def __init__(self, weidth, height):
-        self.weidth = weidth
-        self.height = height
-        self.halfWeidth = weidth/2
-        self.halfHeight = height/2
-
-    def refresh(self, weidth = 0, height = 0):
-        if weidth > 0:
-            self.weidth = weidth
-            self.halfWeidth = weidth/2
-        if height > 0:
-            self.height = height
-            self.halfHeight = height/2
-
 class WindowManager(object):
     def __init__(self, resolution, colorDepth):
-        self.resolution = Points(resolution)
+        self.resolution = Point(resolution)
         self.colorDepth = colorDepth
         self.displayMod = RESIZABLE
-        self.backgroundPoint = Points((0,0))
+        self.backgroundPoint = Point((0,0))
         self.continueEvents = []
         self.screen = pygame.display.set_mode(self.resolution.getPoint(), self.displayMod, self.colorDepth)
 
