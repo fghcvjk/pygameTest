@@ -30,6 +30,7 @@ class WindowManager(object):
         self.mouse_cursor = pygame.image.load(MOUSE_IMAGE_FILENAME).convert_alpha()
         self.mouseData = Shape(self.mouse_cursor.get_width(), self.mouse_cursor.get_height())
         self.font = pygame.font.SysFont("宋体", 40)
+        pygame.mouse.set_visible(False)
         self.onRefresh()
 
     #事件触发
